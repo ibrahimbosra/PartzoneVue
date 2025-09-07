@@ -1,28 +1,1978 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>بارت زون - متجر قطع غيار الدراجات النارية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بارت زون - متجر قطع غيار الدراجات النارية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #f97316;
+      --primary-dark: #ea580c;
+      --secondary-color: #10b981;
+      --dark-color: #1e293b;
+      --light-color: #f8fafc;
+      --gray-color: #64748b;
+      --border-radius: 12px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBRJHYS0FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HBRJHYS0FY');
-    </script>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but PartZone doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #f1f5f9);
+      color: var(--dark-color);
+      padding-bottom: 80px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-size: 14px;
+    }
+
+    header {
+      background: linear-gradient(to right,     var(--dark-color), #101c0e);
+      color: var(--light-color);
+      text-align: center;
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+     .header-content {
+      display: flex;            
+      justify-content: flex-start;
+      align-items: center;       
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+
+      .store-logo {
+       width: 35px;
+       height: 35px;
+       border-radius: 50%;
+       object-fit: cover;
+    }
+      .logo {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       cursor: pointer;
+       margin-right: auto;
+      direction: ltr;
+     }
+
+      .logo i {
+       color: var(--primary-color);
+       font-size: 1.5rem;
+     }
+
+      .logo h1 {
+       color: #f97316;
+       font-size: 1.3rem;
+       font-weight: 700;
+     }
+
+    .store-status-header {
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      position: absolute;
+      right: 20px;
+      top: 2.5px;
+    }
+
+    .store-status-header.open {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+
+    .store-status-header.closed {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+
+    .store-status-header i {
+      margin-left: 5px;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px;
+      min-height: calc(100vh - 200px);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.ibb.co/0jF7kWmL/chinese-motorcycles.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--border-radius);
+      padding: 50px 25px;
+      margin: 5px 0 15px;
+      color: white;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      animation: fadeIn 1s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 300px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+      animation: none;
+    }
+
+    .search-container {
+      display: flex;
+      margin: 0 auto 5px;
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      max-width: 650px;
+      border: 2px solid #e2e8f0;
+      transition: var(--transition);
+    }
+
+    .search-container:focus-within {
+      border-color: var(--primary-color);
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.2);
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 14px 22px;
+      border: none;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      background: transparent;
+    }
+
+    .search-input:focus {
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0 25px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 15px 0 25px;
+      font-size: 1.7rem;
+      color: var(--dark-color);
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    .search-results-title {
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.2rem;
+      color: var(--dark-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-to-products-btn {
+      background: #f1f5f9;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .back-to-products-btn:hover {
+      background: #ffedd5;
+    }
+
+    .under-construction {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 35px 25px;
+      margin: 25px 0;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .under-construction i {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .under-construction h3 {
+      font-size: 1.4rem;
+      color: var(--dark-color);
+      margin-bottom: 15px;
+    }
+
+    .under-construction p {
+      color: var(--gray-color);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .empty-cart {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 35px 25px;
+      margin: 25px 0;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .empty-cart i {
+      font-size: 3.5rem;
+      color: #cbd5e1;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .empty-cart h3 {
+      font-size: 1.6rem;
+      color: var(--dark-color);
+      margin-bottom: 15px;
+    }
+
+    .empty-cart p {
+      color: var(--gray-color);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 450px;
+      margin: 0 auto 25px;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: var(--box-shadow);
+    }
+
+    .contact-map {
+      flex: 2;
+      min-width: 280px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      position: relative;
+    }
+
+    .contact-address {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--dark-color);
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .map-frame {
+      height: 360px;
+      width: 100%;
+      border: none;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      transform: translateX(-5px);
+    }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffedd5, #fed7aa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+
+    .contact-details h3 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      color: var(--dark-color);
+    }
+
+    .contact-details a {
+      color: var(--gray-color);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+    }
+
+    .contact-details a:hover {
+      color: var(--primary-color);
+    }
+
+    .phone-container {
+      text-align: center;
+      margin-bottom: 25px;
+      width: 100%;
+    }
+
+    .phone-number {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffedd5, #fed7aa);
+      color: var(--dark-color);
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .phone-number:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+      background: linear-gradient(135deg, #fed7aa, #ffedd5);
+    }
+
+    .phone-number i {
+      margin-left: 8px;
+      color: var(--primary-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+      justify-content: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 15px;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #101c0e;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e2e8f0;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+      padding: 8px 0;
+      z-index: 100;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      padding: 6px 4px;
+      text-align: center;
+      flex: 1;
+      color: var(--gray-color);
+      font-size: 0.75rem;
+      transition: var(--transition);
+      position: relative;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .nav-btn.active, .nav-btn:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-btn.active::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    .nav-btn i {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+      height: 160px;
+      background-color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-color);
+      font-size: 1rem;
+    }
+
+    .product-details {
+      padding: 15px;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+    }
+
+    .product-price {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .secondary-price {
+      font-size: 0.8em;
+      color: var(--gray-color);
+      margin-right: 5px;
+    }
+
+    .product-details-container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    .product-details-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+    }
+
+    .product-image-large {
+      height: 250px;
+      background-color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      border-radius: var(--border-radius);
+    }
+
+    .product-details-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+      color: var(--dark-color);
+    }
+
+    .description {
+      color: var(--gray-color);
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .back-btn {
+      background: #e2e8f0;
+      color: var(--dark-color);
+      border: none;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: block;
+      width: 100%;
+    }
+
+    .back-btn:hover {
+      background: #cbd5e1;
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      text-align: right;
+    }
+
+    .specs-table th, .specs-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.9rem;
+    }
+
+    .specs-table th {
+      background-color: #f8fafc;
+      color: var(--dark-color);
+      font-weight: 700;
+    }
+
+    .specs-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .categories-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 12px 4px;
+      margin: 15px 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-color) #f1f5f9;
+    }
+
+    .categories-container::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .categories-container::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 8px;
+    }
+
+    .categories-container::-webkit-scrollbar-thumb {
+      background-color: var(--primary-color);
+      border-radius: 8px;
+    }
+
+    .category-btn {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .category-btn.active, .category-btn:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+    }
+
+    .empty-category {
+      text-align: center;
+      padding: 35px 15px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-top: 25px;
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .offer-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      cursor: pointer;
+      border-top: 4px solid var(--secondary-color);
+    }
+
+    .offer-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .offer-image {
+      height: 150px;
+      background-color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-color);
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--secondary-color);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .offer-details {
+      padding: 15px;
+    }
+
+    .offer-name {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+    }
+
+    .offer-description {
+      color: var(--gray-color);
+      margin-bottom: 12px;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    .offer-price {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: var(--gray-color);
+      font-size: 0.9rem;
+    }
+
+    .discounted-price {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.1rem;
+    }
+
+    .offer-products {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .offer-products-title {
+      font-size: 0.85rem;
+      color: var(--gray-color);
+      margin-bottom: 8px;
+    }
+
+    .offer-products-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .offer-product-item {
+      background: #f8fafc;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      color: var(--dark-color);
+    }
+
+    .time-remaining {
+      background: #ffedd5;
+      color: #9a3412;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    .offer-details-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    .offer-details-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+    }
+
+    .offer-image-large {
+      height: 250px;
+      background-color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      border-radius: var(--border-radius);
+      position: relative;
+    }
+
+    .offer-image-large .offer-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+
+    .offer-details-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+      color: var(--dark-color);
+    }
+
+    .offer-description-large {
+      color: var(--gray-color);
+      font-size: 1rem;
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    .offer-price-large {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .original-price-large {
+      text-decoration: line-through;
+      color: var(--gray-color);
+      font-size: 1.2rem;
+    }
+
+    .discounted-price-large {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+    }
+
+    .time-remaining-large {
+      background: #ffedd5;
+      color: #9a3412;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin: 15px auto;
+      display: inline-block;
+    }
+
+    .offer-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .offer-products-title-large {
+      font-size: 1.3rem;
+      color: var(--dark-color);
+      margin: 30px 0 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e2e8f0;
+      text-align: right;
+    }
+
+    .back-offer-btn {
+      background: #e2e8f0;
+      color: var(--dark-color);
+      border: none;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .back-offer-btn:hover {
+      background: #cbd5e1;
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      animation: fadeIn 0.3s ease, fadeOut 0.3s ease 2.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .hero {
+        padding: 30px 15px;
+        min-height: 280px;
+      }
+      
+      .hero h2 {
+        font-size: 1.7rem;
+      }
+      
+      .hero p {
+        font-size: 0.95rem;
+      }
+      
+      .logo h1 {
+        font-size: 1.2rem;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .map-frame {
+        height: 250px;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 20px 12px;
+        min-height: 250px;
+      }
+      
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      
+      .hero p {
+        font-size: 0.9rem;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+      
+      .contact-address {
+        font-size: 0.75rem;
+        white-space: normal;
+      }
+      
+      .under-construction, .empty-cart {
+        padding: 25px 12px;
+      }
+
+      /* تحسينات خاصة بقسم المنتجات للشاشات الصغيرة */
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      
+      .product-card {
+        border-radius: 10px;
+      }
+      
+      .product-image {
+        height: 120px;
+        font-size: 0.9rem;
+      }
+      
+      .product-details {
+        padding: 10px;
+      }
+      
+      .product-name {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        height: 2.8em;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      
+      .product-price {
+        font-size: 0.95rem;
+        margin: 8px 0;
+      }
+      
+      .category-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .section-title {
+        font-size: 1.2rem;
+        margin: 10px 0 20px;
+      }
+      
+      .search-results-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBRJHYS0FY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HBRJHYS0FY');
+</script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo" onclick="showPage('home')">
+  <img src="https://i.ibb.co/v4jJWvH0/IMG-20250906-134813.jpg" alt="Logo" class="store-logo">
+  <h1>P A R T Z O N E</h1>
+</div>
+      <div class="store-status-header" id="store-status-header">
+        <i class="fas fa-circle-notch fa-spin"></i>
+        <span>جاري التحميل...</span>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="ابحث عن قطعة غيار...">
+    <button class="search-btn" id="search-button"><i class="fas fa-search"></i></button>
+  </div>
+  
+  <div class="page-container">
+    <div id="home-page" class="page active">
+      <div class="hero">
+        <h2>أفضل قطع الغيار للدراجات النارية</h2>
+        <p>جودة عالية وأسعار تنافسية</p>
+        <button class="btn" onclick="showPage('products')">تصفح المنتجات الآن</button>
+      </div>
+    </div>
+    
+    <div id="products-page" class="page">
+      <h2 class="section-title">المنتجات المتوفرة</h2>
+      
+      <div class="categories-container" id="categories-container">
+      </div>
+      
+      <div id="search-results-title" class="search-results-title" style="display: none;">
+        <button class="back-to-products-btn" id="back-from-search">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <span id="search-results-text"></span>
+      </div>
+      
+      <div class="products-grid" id="products-container">
+      </div>
+    </div>
+    
+    <div id="product-details-page" class="page">
+      <div class="product-details-container" id="product-details-container">
+      </div>
+    </div>
+    
+    <div id="offers-page" class="page">
+      <h2 class="section-title">العروض الخاصة</h2>
+      
+      <div class="offers-grid" id="offers-container">
+      </div>
+    </div>
+    
+    <div id="offer-details-page" class="page">
+      <div class="offer-details-container" id="offer-details-container">
+      </div>
+    </div>
+    
+    <div id="contact-page" class="page">
+      <h2 class="section-title">تواصل معنا</h2>
+      
+      <div class="contact-container" id="contact-container">
+        <!-- سيتم ملء هذا القسم ديناميكياً من قاعدة البيانات -->
+      </div>
+    </div>
+  </div>
+  
+  <nav>
+    <button class="nav-btn active" onclick="showPage('home')">
+      <i class="fas fa-home"></i>
+      <span>الرئيسية</span>
+    </button>
+    <button class="nav-btn" onclick="showPage('products')">
+      <i class="fas fa-box"></i>
+      <span>المنتجات</span>
+    </button>
+    <button class="nav-btn" onclick="showPage('offers')">
+      <i class="fas fa-tags"></i>
+      <span>العروض</span>
+    </button>
+    <button class="nav-btn" onclick="showPage('contact')">
+      <i class="fas fa-phone"></i>
+      <span>التواصل</span>
+    </button>
+  </nav>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyARTj0C63mKNHuhp0kxdciczVS4_vMxbJo",
+      authDomain: "partzoneadmin.firebaseapp.com",
+      databaseURL: "https://partzoneadmin-default-rtdb.firebaseio.com",
+      projectId: "partzoneadmin",
+      storageBucket: "partzoneadmin.appspot.com",
+      messagingSenderId: "714743852681",
+      appId: "1:714743852681:web:16b478deb50024952c2058"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    let currentCategory = 'الكل';
+    let categories = [];
+    let productMap = {};
+    let offerMap = {};
+    let isSearching = false;
+    let currentSearchQuery = '';
+    let currencySettings = {
+      currency: '',
+      secondaryCurrency: '',
+      exchangeRate: 1
+    };
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      document.getElementById(`${pageId}-page`).classList.add('active');
+      
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      const activeButton = Array.from(document.querySelectorAll('.nav-btn')).find(btn => {
+        return btn.getAttribute('onclick') === `showPage('${pageId}')`;
+      });
+      
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+      
+      if (pageId === 'products') {
+        if (isSearching) {
+          document.getElementById('categories-container').style.display = 'none';
+          document.getElementById('search-results-title').style.display = 'flex';
+          document.getElementById('search-results-text').textContent = `نتائج البحث عن "${currentSearchQuery}"`;
+          displaySearchResults(currentSearchQuery);
+        } else {
+          document.getElementById('categories-container').style.display = 'flex';
+          document.getElementById('search-results-title').style.display = 'none';
+          loadCategories();
+          displayProducts();
+        }
+      }
+      
+      if (pageId === 'offers') {
+        loadOffers();
+      }
+      
+      if (pageId === 'contact') {
+        loadContactPage();
+      }
+    }
+    
+    function loadCurrencySettings() {
+      // جلب إعدادات العملة من قاعدة البيانات
+      database.ref('settings/currency').on('value', snapshot => {
+        if (snapshot.exists()) {
+          currencySettings.currency = snapshot.val();
+          updateAllPrices();
+        }
+      });
+      
+      database.ref('settings/secondaryCurrency').on('value', snapshot => {
+        if (snapshot.exists()) {
+          currencySettings.secondaryCurrency = snapshot.val();
+          updateAllPrices();
+        } else {
+          currencySettings.secondaryCurrency = '';
+          updateAllPrices();
+        }
+      });
+      
+      database.ref('settings/exchangeRate').on('value', snapshot => {
+        if (snapshot.exists()) {
+          currencySettings.exchangeRate = parseFloat(snapshot.val()) || 1;
+          updateAllPrices();
+        } else {
+          currencySettings.exchangeRate = 1;
+          updateAllPrices();
+        }
+      });
+    }
+    
+    function formatPrice(price) {
+      // استخراج القيمة الرقمية من السعر (في حالة احتواء السعر على رموز)
+      const numericPrice = parseFloat(price) || 0;
+      
+      // تنسيق السعر مع رمز العملة الأساسي
+      let formattedPrice = `${numericPrice.toLocaleString('ar')} ${currencySettings.currency}`;
+      
+      // إذا كان هناك عملة ثانوية وسعر صرف، نضيف السعر الثانوي
+      if (currencySettings.secondaryCurrency && currencySettings.exchangeRate !== 1) {
+        const secondaryPrice = numericPrice * currencySettings.exchangeRate;
+        formattedPrice += ` <span class="secondary-price">(${secondaryPrice.toLocaleString('ar')} ${currencySettings.secondaryCurrency})</span>`;
+      }
+      
+      return formattedPrice;
+    }
+    
+    function updateAllPrices() {
+      // تحديث جميع الأسعار المعروضة حالياً
+      if (document.getElementById('products-page').classList.contains('active')) {
+        if (isSearching) {
+          displaySearchResults(currentSearchQuery);
+        } else {
+          displayProducts();
+        }
+      }
+      
+      if (document.getElementById('product-details-page').classList.contains('active')) {
+        const productId = document.querySelector('.product-details-card')?.dataset?.id;
+        if (productId) {
+          showProductDetails(productId);
+        }
+      }
+      
+      if (document.getElementById('offers-page').classList.contains('active')) {
+        loadOffers();
+      }
+      
+      if (document.getElementById('offer-details-page').classList.contains('active')) {
+        const offerId = document.querySelector('.offer-details-card')?.dataset?.id;
+        if (offerId) {
+          showOfferDetails(offerId);
+        }
+      }
+    }
+    
+    function loadStoreStatus() {
+      // جلب حالة المتجر من قاعدة البيانات وعرضها في الشريط العلوي
+      database.ref('contactPage/isOpen').on('value', snapshot => {
+        const storeStatusHeader = document.getElementById('store-status-header');
+        if (snapshot.exists()) {
+          const isOpen = snapshot.val();
+          if (isOpen) {
+            storeStatusHeader.className = 'store-status-header open';
+            storeStatusHeader.innerHTML = '<i class="fas fa-door-open"></i> <span>المتجر مفتوح الآن</span>';
+          } else {
+            storeStatusHeader.className = 'store-status-header closed';
+            storeStatusHeader.innerHTML = '<i class="fas fa-door-closed"></i> <span>المتجر مغلق الآن</span>';
+          }
+        } else {
+          storeStatusHeader.style.display = 'none';
+        }
+      });
+    }
+    
+    function loadCategories() {
+      database.ref('categories').once('value').then(snapshot => {
+        const container = document.getElementById('categories-container');
+        container.innerHTML = '';
+        
+        if (snapshot.exists()) {
+          categories = Object.values(snapshot.val());
+        } else {
+          categories = [];
+        }
+        
+        if (categories.length > 0) {
+          if (!categories.includes('الكل')) {
+            categories.unshift('الكل');
+          }
+          
+          categories.forEach(category => {
+            const btn = document.createElement('button');
+            btn.className = 'category-btn';
+            if (category === currentCategory) {
+              btn.classList.add('active');
+            }
+            btn.textContent = category;
+            btn.onclick = () => {
+              currentCategory = category;
+              isSearching = false;
+              document.getElementById('categories-container').style.display = 'flex';
+              document.getElementById('search-results-title').style.display = 'none';
+              displayProducts();
+              document.querySelectorAll('.category-btn').forEach(b => {
+                b.classList.remove('active');
+              });
+              btn.classList.add('active');
+            };
+            container.appendChild(btn);
+          });
+        }
+      });
+    }
+    
+    function displayProducts() {
+      const container = document.getElementById('products-container');
+      container.innerHTML = '';
+      
+      database.ref('products').once('value').then(snapshot => {
+        if (!snapshot.exists()) {
+          container.innerHTML = `
+            <div class="empty-category" style="grid-column: 1/-1; text-align: center;">
+              <i class="fas fa-box-open"></i>
+              <h3>لا توجد منتجات حالياً</h3>
+              <p>لم يتم إضافة أي منتجات إلى المتجر بعد</p>
+            </div>
+          `;
+          return;
+        }
+        
+        let productsToDisplay = [];
+        
+        snapshot.forEach(child => {
+          const product = child.val();
+          productMap[child.key] = product;
+          
+          if (currentCategory !== 'الكل' && product.category !== currentCategory) {
+            return;
+          }
+          
+          productsToDisplay.push({ id: child.key, ...product });
+        });
+        
+        productsToDisplay.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+        
+        if (productsToDisplay.length === 0) {
+          container.innerHTML = `
+            <div class="empty-category" style="grid-column: 1/-1;">
+              <i class="fas fa-box-open"></i>
+              <h3>لا توجد منتجات في هذه الفئة</h3>
+              <p>لم يتم إضافة أي منتجات إلى فئة "${currentCategory}" بعد</p>
+              <button class="btn" onclick="currentCategory='الكل'; displayProducts();" style="margin-top: 20px;">عرض جميع المنتجات</button>
+            </div>
+          `;
+          return;
+        }
+        
+        productsToDisplay.forEach(product => {
+          const productCard = document.createElement('div');
+          productCard.className = 'product-card';
+          productCard.dataset.id = product.id;
+          
+          const imageContent = product.imageUrl 
+            ? `<img src="${product.imageUrl}" alt="${product.name}" style="width:100%; height:100%; object-fit:contain;">`
+            : `<i class="fas fa-cog"></i>`;
+          
+          productCard.innerHTML = `
+            <div class="product-image">
+              ${imageContent}
+            </div>
+            <div class="product-details">
+              <h3 class="product-name">${product.name}</h3>
+              <p class="product-price">${formatPrice(product.price)}</p>
+            </div>
+          `;
+          
+          productCard.addEventListener('click', function() {
+            showProductDetails(product.id);
+          });
+          
+          container.appendChild(productCard);
+        });
+      });
+    }
+    
+    function showProductDetails(productId) {
+      const product = productMap[productId];
+      if (!product) return;
+      
+      const container = document.getElementById('product-details-container');
+      
+      const imageContent = product.imageUrl 
+        ? `<img src="${product.imageUrl}" alt="${product.name}" style="width:100%; height:100%; object-fit:contain;">`
+        : `<i class="fas fa-cog"></i>`;
+      
+      let specsTable = '';
+      if (product.specifications) {
+        specsTable = `
+          <table class="specs-table">
+            <tr>
+              <th colspan="2">مواصفات المنتج</th>
+            </tr>
+            ${Object.entries(product.specifications).map(([key, value]) => `
+              <tr>
+                <td>${key}</td>
+                <td>${value}</td>
+              </tr>
+            `).join('')}
+          </table>
+        `;
+      }
+      
+      container.innerHTML = `
+        <div class="product-details-card" data-id="${productId}">
+          <div class="product-image-large">
+            ${imageContent}
+          </div>
+          <h2>${product.name}</h2>
+          <p class="description">${product.description || 'لا يوجد وصف متاح'}</p>
+          <p class="price">${formatPrice(product.price)}</p>
+          
+          ${specsTable}
+          
+          <button class="back-btn" onclick="isSearching ? displaySearchResults(currentSearchQuery) : showPage('products')">العودة</button>
+        </div>
+      `;
+      
+      showPage('product-details');
+    }
+    
+    function loadOffers() {
+      const container = document.getElementById('offers-container');
+      container.innerHTML = '';
+      
+      database.ref('offers').once('value').then(snapshot => {
+        if (!snapshot.exists()) {
+          container.innerHTML = `
+            <div class="empty-category" style="grid-column: 1/-1; text-align: center;">
+              <i class="fas fa-tags"></i>
+              <h3>لا توجد عروض حالياً</h3>
+              <p>لم يتم إضافة أي عروض إلى المتجر بعد</p>
+            </div>
+          `;
+          return;
+        }
+        
+        let hasActiveOffers = false;
+        
+        snapshot.forEach(child => {
+          const offer = child.val();
+          offerMap[child.key] = offer;
+          
+          if (offer.autoDelete && offer.endDate) {
+            const endDate = new Date(offer.endDate);
+            const now = new Date();
+            
+            if (endDate <= now) {
+              database.ref('offers/' + child.key).remove();
+              return;
+            }
+          }
+          
+          hasActiveOffers = true;
+          
+          const offerCard = document.createElement('div');
+          offerCard.className = 'offer-card';
+          offerCard.dataset.id = child.key;
+          
+          const imageContent = offer.imageUrl 
+            ? `<img src="${offer.imageUrl}" alt="${offer.name}" style="width:100%; height:100%; object-fit:contain;">`
+            : `<i class="fas fa-tags"></i>`;
+          
+          let productsList = '';
+          if (offer.products && offer.products.length > 0) {
+            productsList = `
+              <div class="offer-products">
+                <div class="offer-products-title">المنتجات المدرجة:</div>
+                <div class="offer-products-list">
+                  ${offer.products.slice(0, 3).map(p => `
+                    <div class="offer-product-item">${p.name}</div>
+                  `).join('')}
+                  ${offer.products.length > 3 ? `<div class="offer-product-item">+${offer.products.length - 3} منتجات أخرى</div>` : ''}
+                </div>
+              </div>
+            `;
+          }
+          
+          let timeRemaining = '';
+          if (offer.autoDelete && offer.endDate) {
+            timeRemaining = `
+              <div class="time-remaining">
+                <i class="fas fa-clock"></i>
+                <span id="time-remaining-${child.key}"></span>
+              </div>
+            `;
+          }
+          
+          offerCard.innerHTML = `
+            <div class="offer-image">
+              ${imageContent}
+              <div class="offer-badge">خصم ${offer.discountPercentage}</div>
+            </div>
+            <div class="offer-details">
+              <h3 class="offer-name">${offer.name}</h3>
+              <p class="offer-description">${offer.description || 'لا يوجد وصف متاح'}</p>
+              
+              <div class="offer-price">
+                <span class="original-price">${formatPrice(offer.totalWithoutDiscount)}</span>
+                <span class="discounted-price">${formatPrice(offer.totalWithDiscount)}</span>
+              </div>
+              
+              ${timeRemaining}
+              ${productsList}
+            </div>
+          `;
+          
+          offerCard.addEventListener('click', function() {
+            showOfferDetails(child.key);
+          });
+          
+          container.appendChild(offerCard);
+          
+          if (offer.autoDelete && offer.endDate) {
+            updateOfferTimer(child.key, offer.endDate);
+          }
+        });
+        
+        if (!hasActiveOffers) {
+          container.innerHTML = `
+            <div class="empty-category" style="grid-column: 1/-1; text-align: center;">
+              <i class="fas fa-tags"></i>
+              <h3>لا توجد عروض حالياً</h3>
+              <p>لم يتم إضافة أي عروض إلى المتجر بعد</p>
+            </div>
+          `;
+        }
+      });
+    }
+    
+    function showOfferDetails(offerId) {
+      const offer = offerMap[offerId];
+      if (!offer) return;
+      
+      const container = document.getElementById('offer-details-container');
+      
+      const imageContent = offer.imageUrl 
+        ? `<img src="${offer.imageUrl}" alt="${offer.name}" style="width:100%; height:100%; object-fit:contain;">`
+        : `<i class="fas fa-tags"></i>`;
+      
+      let timeRemaining = '';
+      if (offer.autoDelete && offer.endDate) {
+        timeRemaining = `
+          <div class="time-remaining-large">
+            <i class="fas fa-clock"></i>
+            <span id="time-remaining-details-${offerId}"></span>
+          </div>
+        `;
+      }
+      
+      let productsGrid = '';
+      if (offer.products && offer.products.length > 0) {
+        productsGrid = `
+          <h3 class="offer-products-title-large">منتجات العرض</h3>
+          <div class="offer-products-grid" id="offer-products-grid-${offerId}">
+            ${offer.products.map(product => `
+              <div class="product-card" data-id="${product.id}">
+                <div class="product-image">
+                  ${product.imageUrl ? `<img src="${product.imageUrl}" alt="${product.name}" style="width:100%; height:100%; object-fit:contain;">` : '<i class="fas fa-cog"></i>'}
+                </div>
+                <div class="product-details">
+                  <h3 class="product-name">${product.name}</h3>
+                  <p class="product-price">${formatPrice(product.price)}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+      
+      container.innerHTML = `
+        <div class="offer-details-card" data-id="${offerId}">
+          <div class="offer-image-large">
+            ${imageContent}
+            <div class="offer-badge">خصم ${offer.discountPercentage}</div>
+          </div>
+          <h2>${offer.name}</h2>
+          <p class="offer-description-large">${offer.description || 'لا يوجد وصف متاح'}</p>
+          
+          <div class="offer-price-large">
+            <span class="original-price-large">${formatPrice(offer.totalWithoutDiscount)}</span>
+            <span class="discounted-price-large">${formatPrice(offer.totalWithDiscount)}</span>
+          </div>
+          
+          ${timeRemaining}
+          
+          ${productsGrid}
+          
+          <button class="back-offer-btn" onclick="showPage('offers')">العودة إلى العروض</button>
+        </div>
+      `;
+      
+      if (offer.autoDelete && offer.endDate) {
+        updateOfferTimer(`details-${offerId}`, offer.endDate);
+      }
+      
+      const productsGridContainer = document.getElementById(`offer-products-grid-${offerId}`);
+      if (productsGridContainer) {
+        productsGridContainer.querySelectorAll('.product-card').forEach(card => {
+          const productId = card.dataset.id;
+          card.addEventListener('click', () => {
+            showProductDetails(productId);
+          });
+        });
+      }
+      
+      showPage('offer-details');
+    }
+    
+    function updateOfferTimer(offerId, endDateStr) {
+      const endDate = new Date(endDateStr);
+      const timerElement = document.getElementById(`time-remaining-${offerId}`);
+      if (!timerElement) return;
+      
+      function update() {
+        const now = new Date();
+        const diff = endDate - now;
+        
+        if (diff <= 0) {
+          timerElement.textContent = 'انتهى العرض';
+          return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        timerElement.textContent = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+        
+        setTimeout(update, 1000);
+      }
+      
+      update();
+    }
+    
+    function displaySearchResults(query) {
+      const container = document.getElementById('products-container');
+      container.innerHTML = '';
+      
+      database.ref('products').once('value').then(snapshot => {
+        if (!snapshot.exists()) {
+          container.innerHTML = `
+            <div class="under-construction" style="grid-column: 1/-1; text-align: center;">
+              <i class="fas fa-search"></i>
+              <h3>لم يتم العثور على منتجات</h3>
+              <p>عذراً، لم نتمكن من العثور على منتجات مطابقة لبحثك</p>
+            </div>
+          `;
+          return;
+        }
+        
+        let foundProducts = [];
+        
+        snapshot.forEach(child => {
+          const product = child.val();
+          const searchFields = [
+            product.name,
+            product.description,
+            product.category,
+            product.brand
+          ].join(' ').toLowerCase();
+          
+          if (searchFields.includes(query)) {
+            foundProducts.push({ id: child.key, ...product });
+          }
+        });
+        
+        foundProducts.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+        
+        if (foundProducts.length > 0) {
+          foundProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.dataset.id = product.id;
+            
+            const imageContent = product.imageUrl 
+              ? `<img src="${product.imageUrl}" alt="${product.name}" style="width:100%; height:100%; object-fit:contain;">`
+              : `<i class="fas fa-cog"></i>`;
+            
+            productCard.innerHTML = `
+              <div class="product-image">
+                ${imageContent}
+              </div>
+              <div class="product-details">
+                <h3 class="product-name">${product.name}</h3>
+                <p class="product-price">${formatPrice(product.price)}</p>
+              </div>
+            `;
+            
+            productCard.addEventListener('click', function() {
+              showProductDetails(product.id);
+            });
+            
+            container.appendChild(productCard);
+          });
+        } else {
+          container.innerHTML = `
+            <div class="under-construction" style="grid-column: 1/-1; text-align: center;">
+              <i class="fas fa-search"></i>
+              <h3>لم يتم العثور على منتجات</h3>
+              <p>عذراً، لم نتمكن من العثور على منتجات مطابقة لبحثك: "${query}"</p>
+              <button class="btn" onclick="isSearching=false; currentCategory='الكل'; showPage('products')" style="margin-top: 20px;">عرض جميع المنتجات</button>
+            </div>
+          `;
+        }
+      });
+    }
+    
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      currentSearchQuery = query;
+      
+      if (!query) {
+        isSearching = false;
+        showPage('products');
+        return;
+      }
+      
+      isSearching = true;
+      showPage('products');
+    }
+    
+    function loadContactPage() {
+      const container = document.getElementById('contact-container');
+      container.innerHTML = `
+        <div class="contact-info">
+          <div class="phone-container" id="phone-container">
+            <a href="#" class="phone-number" id="phone-link">
+              <i class="fas fa-phone-alt"></i>
+              <span id="phone-text">جاري التحميل...</span>
+            </a>
+          </div>
+          
+          <div class="social-links" id="social-links">
+            <!-- سيتم ملء هذا القسم ديناميكياً -->
+          </div>
+        </div>
+        
+        <div class="contact-map">
+          <div class="contact-address" id="contact-address">
+            جاري تحميل العنوان...
+          </div>
+          <iframe 
+            src="" 
+            class="map-frame"
+            id="map-frame"
+            frameborder="0" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      `;
+      
+      // جلب بيانات صفحة التواصل من Firebase
+      database.ref('contactPage').once('value').then(snapshot => {
+        if (!snapshot.exists()) {
+          container.innerHTML = `
+            <div class="under-construction" style="grid-column: 1/-1; text-align: center;">
+              <i class="fas fa-exclamation-triangle"></i>
+              <h3>لا توجد بيانات للتواصل</h3>
+              <p>عذراً، لم يتم إعداد بيانات التواصل بعد</p>
+            </div>
+          `;
+          return;
+        }
+        
+        const contactData = snapshot.val();
+        
+        // تحديث رقم الهاتف
+        if (contactData.phone) {
+          const phoneLink = document.getElementById('phone-link');
+          const phoneText = document.getElementById('phone-text');
+          
+          phoneLink.href = `tel:${contactData.phone.number}`;
+          phoneText.textContent = contactData.phone.formattedNumber;
+          
+          if (contactData.phone.icon) {
+            const iconElement = phoneLink.querySelector('i');
+            iconElement.className = contactData.phone.icon;
+          }
+        }
+        
+        // تحديث وسائل التواصل الاجتماعي
+        const socialLinksContainer = document.getElementById('social-links');
+        socialLinksContainer.innerHTML = '';
+        
+        if (contactData.socialLinks && contactData.socialLinks.length > 0) {
+          contactData.socialLinks.forEach(social => {
+            const link = document.createElement('a');
+            link.className = 'social-link';
+            link.href = social.url;
+            link.target = '_blank';
+            link.innerHTML = `<i class="${social.icon}"></i>`;
+            socialLinksContainer.appendChild(link);
+          });
+        }
+        
+        // تحديث العنوان
+        if (contactData.address) {
+          document.getElementById('contact-address').textContent = contactData.address;
+        }
+        
+        // تحديث خريطة جوجل
+        if (contactData.googleMap && contactData.googleMap.url) {
+          document.getElementById('map-frame').src = contactData.googleMap.url;
+        }
+      }).catch(error => {
+        console.error('Error loading contact data:', error);
+        container.innerHTML = `
+          <div class="under-construction" style="grid-column: 1/-1; text-align: center;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>خطأ في تحميل بيانات التواصل</h3>
+            <p>عذراً، حدث خطأ أثناء تحميل بيانات التواصل</p>
+          </div>
+        `;
+      });
+    }
+    
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-button');
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') performSearch();
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      showPage('home');
+      
+      // تحميل إعدادات العملة وحالة المتجر
+      loadCurrencySettings();
+      loadStoreStatus();
+      
+      document.getElementById('back-from-search').addEventListener('click', function() {
+        searchInput.value = '';
+        isSearching = false;
+        showPage('products');
+      });
+      
+      database.ref('products').on('value', (snapshot) => {
+        snapshot.forEach(child => {
+          productMap[child.key] = child.val();
+        });
+        
+        if (document.getElementById('products-page').classList.contains('active')) {
+          if (isSearching) {
+            displaySearchResults(currentSearchQuery);
+          } else {
+            displayProducts();
+          }
+        }
+      });
+      
+      database.ref('offers').on('value', (snapshot) => {
+        snapshot.forEach(child => {
+          offerMap[child.key] = child.val();
+        });
+        
+        if (document.getElementById('offers-page').classList.contains('active')) {
+          loadOffers();
+        }
+      });
+    });
+  </script>
+</body>
 </html>
