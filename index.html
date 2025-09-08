@@ -1390,10 +1390,10 @@
           const isOpen = snapshot.val();
           if (isOpen) {
             storeStatusHeader.className = 'store-status-header open';
-            storeStatusHeader.innerHTML = '<i class="fas fa-door-open"></i> <span></span></span>Open</span>';
+            storeStatusHeader.innerHTML = '<i class="fas fa-door-open"></i> <span></span></span>المتجر مفتوح حالياً</span>';
           } else {
             storeStatusHeader.className = 'store-status-header closed';
-            storeStatusHeader.innerHTML = '<i class="fas fa-door-closed"></i> <span>closed</span>';
+            storeStatusHeader.innerHTML = '<i class="fas fa-door-closed"></i> <span>المتجر مغلق حالياً</span>';
           }
         } else {
           storeStatusHeader.style.display = 'none';
